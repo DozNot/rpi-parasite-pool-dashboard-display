@@ -1,0 +1,15 @@
+{
+  "btc_address": "YOUR BITCOIN ADDRESS FOR PARASITE",
+  "logo_path": "logos/parasite-white.png",
+  "fps": 12,
+  "dim_alpha": 50,
+  "data_timeout_sec": 300,
+  "stale_warn_sec": 60,
+  "mempool_poll_interval": 25,
+  "parasite_poll_interval": 4,
+  "wifi_check_interval": 12,
+  "historical_interval": "5m",
+  "total_work_cache_min": 140,
+  "total_work_cache_max": 300,
+  "parasite_api_base": "https://parasite.space/api"
+}
