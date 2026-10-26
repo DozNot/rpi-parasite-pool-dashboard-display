@@ -200,7 +200,7 @@ def get_cached_total_work() -> str:
         return formatted
 
     except Exception as exc:
-        logger.warning("Failed to fetch total_diff: %s", exp)
+        logger.warning("Failed to fetch total_diff: %s", exc)
         with state.parasite_lock:
             return state.total_work_cache
 
@@ -221,7 +221,7 @@ def fetch_user_rank() -> str:
                 return str(index + 1)
         return "?"
     except Exception as exc:
-        logger.error("fetch_user_rank failed: %s", exp)
+        logger.error("fetch_user_rank failed: %s", exc)
         return "?"
 
 
@@ -253,8 +253,8 @@ def fetch_recent_shares() -> List[Tuple[float, float]]:
 
         shares.sort(key=lambda x: x[0], reverse=True)
         return shares
-    except Exception as exp:
-        logger.error("fetch_recent_shares failed: %s", exp)
+    except Exception as exc:
+        logger.error("fetch_recent_shares failed: %s", exc)
         return []
 
 
@@ -286,6 +286,6 @@ def fetch_historical_hashrate() -> List[Tuple[float, float]]:
 
         points.sort(key=lambda x: x[0])
         return points
-    except Exception as exp:
-        logger.error("fetch_historical_hashrate failed: %s", exp)
+    except Exception as exc:
+        logger.error("fetch_historical_hashrate failed: %s", exc)
         return []
