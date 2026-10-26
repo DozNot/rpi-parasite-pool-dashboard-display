@@ -70,8 +70,8 @@ def run_parasite_polling(state: AppState) -> None:
             raw_diff = str(data.get("highestDifficulty", "??"))
             pool_best_str = format_pool_best_diff(raw_diff)
             success = True
-        except Exception as exc:
-            logger.error("Failed to fetch pool stats: %s", exp)
+        except Exception as err:
+            logger.error("Failed to fetch pool stats: %s", err)
 
         # --- User stats ---
         try:
@@ -96,8 +96,8 @@ def run_parasite_polling(state: AppState) -> None:
             )
             user_uptime = data.get("uptime", "?d ?h")
             success = True
-        except Exception as exp:
-            logger.error("Failed to fetch user stats: %s", exp)
+        except Exception as err:
+            logger.error("Failed to fetch user stats: %s", err)
 
         # --- Cached total work ---
         user_work = get_cached_total_work()
