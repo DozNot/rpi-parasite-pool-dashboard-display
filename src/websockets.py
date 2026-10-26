@@ -42,7 +42,7 @@ def run_kraken_websocket(state: AppState) -> None:
             with state.data_lock:
                 state.kraken.update(price, change_pct)
         except Exception as exc:
-            logger.debug("Kraken message parse error: %s", exp)
+            logger.debug("Kraken message parse error: %s", exc)
 
     def on_open(ws: websocket.WebSocketApp) -> None:
         state.kraken_ws_status = "Live"
@@ -101,7 +101,7 @@ def run_binance_websocket(state: AppState) -> None:
             with state.data_lock:
                 state.binance.update(price, change_pct)
         except Exception as exc:
-            logger.debug("Binance message parse error: %s", exp)
+            logger.debug("Binance message parse error: %s", exc)
 
     def on_open(ws: websocket.WebSocketApp) -> None:
         state.binance_ws_status = "Live"
