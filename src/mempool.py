@@ -78,7 +78,7 @@ def run_mempool_polling(state: AppState) -> None:
                     }
                 )
         except Exception as exc:
-            logger.warning("Mempool poll failed: %s", exp)
+            logger.warning("Mempool poll failed: %s", exc)
             with state.mempool_lock:
                 state.mempool.update(
                     {
